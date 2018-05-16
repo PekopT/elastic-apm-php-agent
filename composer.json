@@ -1,5 +1,5 @@
 {
-  "name": "hotrush/elastic-apm-php-agent",
+  "name": "pekopt/elastic-apm-php-agent",
   "license": "MIT",
   "require": {
     "php": ">= 5.6",
