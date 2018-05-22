@@ -56,7 +56,7 @@ class Timer
      * @throws \Hotrush\Exception\Timer\NotStoppedException
      * @return float
      */
-    public function getDuration(): float
+    public function getDuration()
     {
         if ($this->stoppedOn === null) {
             throw new NotStoppedException();
@@ -71,7 +71,7 @@ class Timer
      * @throws \Hotrush\Exception\Timer\NotStartedException
      * @return float
      */
-    public function getElapsed(): float
+    public function getElapsed()
     {
         if ($this->startedOn === null) {
             throw new NotStartedException();
@@ -88,7 +88,7 @@ class Timer
      * @param float $num
      * @return float
      */
-    private function toMilli(float $num): float
+    private function toMilli( $num)
     {
         return $num * 1000;
     }

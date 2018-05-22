@@ -42,9 +42,9 @@ class TransactionsStore extends Store
      *
      * @return mixed: \Hotrush\Events\Transaction | null
      */
-    public function fetch(string $name)
+    public function fetch($name)
     {
-        return $this->store[$name] ?? null;
+        return $this->store[$name] ? $this->store[$name] : null;
     }
 
     /**
@@ -52,7 +52,7 @@ class TransactionsStore extends Store
      *
      * @return array
      */
-    public function jsonSerialize(): array
+    public function jsonSerialize()
     {
         return array_values($this->store);
     }

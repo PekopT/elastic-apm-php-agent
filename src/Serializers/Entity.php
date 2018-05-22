@@ -31,7 +31,7 @@ class Entity
      *
      * @return array
      */
-    protected function getSkeleton(): array
+    protected function getSkeleton()
     {
         return [
             'service' => [

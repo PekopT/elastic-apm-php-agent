@@ -8,7 +8,7 @@ namespace Hotrush\Exception;
 class MissingAppNameException extends \Exception
 {
 
-    public function __construct(string $message = '', int $code = 0, \Throwable $previous = NULL)
+    public function __construct($message = '', $code = 0, $previous = NULL)
     {
         parent::__construct(sprintf('No app name registered in agent config.', $message), $code, $previous);
     }

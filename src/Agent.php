@@ -105,7 +105,7 @@ class Agent
      *
      * @return void
      */
-    public function startTransaction(string $name)
+    public function startTransaction($name)
     {
         // Create and Store Transaction
         $this->transactionsStore->register(new Transaction($name, $this->sharedContextRegistry));
@@ -124,7 +124,7 @@ class Agent
      *
      * @return void
      */
-    public function stopTransaction(string $name, array $meta = [])
+    public function stopTransaction($name, array $meta = [])
     {
         $this->getTransaction($name)->stop();
         $this->getTransaction($name)->setMeta($meta);
@@ -137,7 +137,7 @@ class Agent
      * @param string $name
      * @return mixed \Hotrush\Events\Transaction|null
      */
-    public function getTransaction(string $name)
+    public function getTransaction($name)
     {
         $transaction = $this->transactionsStore->fetch($name);
         if ($transaction === null) {
@@ -154,7 +154,7 @@ class Agent
      * @param \Throwable $thrown
      * @return void
      */
-    public function captureThrowable(\Throwable $thrown)
+    public function captureThrowable($thrown)
     {
         $this->errorsStore->register(new Error($thrown, $this->sharedContextRegistry));
     }
@@ -164,7 +164,7 @@ class Agent
      *
      * @return \Hotrush\Helper\Config
      */
-    public function getConfig(): \Hotrush\Helper\Config
+    public function getConfig()
     {
         return $this->config;
     }
@@ -174,7 +174,7 @@ class Agent
      *
      * @return bool
      */
-    public function send(): bool
+    public function send()
     {
         // Is the Agent enabled ?
         if ($this->config->get('active') === false) {

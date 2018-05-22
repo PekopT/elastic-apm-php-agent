@@ -26,7 +26,7 @@ class Tags implements EntityInterface
         $this->tags = $tags;
     }
 
-    public function isEmpty(): bool
+    public function isEmpty()
     {
         return empty($this->tags);
     }
@@ -34,7 +34,7 @@ class Tags implements EntityInterface
     /**
      * @return array
      */
-    public function toArray(): array
+    public function toArray()
     {
         return $this->tags;
     }

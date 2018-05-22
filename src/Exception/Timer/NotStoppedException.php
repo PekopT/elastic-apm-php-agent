@@ -8,7 +8,7 @@ namespace Hotrush\Exception\Timer;
 class NotStoppedException extends \Exception
 {
 
-    public function __construct(string $message = '', int $code = 0, \Throwable $previous = NULL)
+    public function __construct($message = '', $code = 0, $previous = NULL)
     {
         parent::__construct('Can\'t get the duration of a running timer.', $code, $previous);
     }

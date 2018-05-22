@@ -23,7 +23,7 @@ class User implements EntityInterface
      * @param $id
      * @return self
      */
-    public function setId($id): self
+    public function setId($id)
     {
         $this->id = $id;
 
@@ -34,7 +34,7 @@ class User implements EntityInterface
      * @param $username
      * @return self
      */
-    public function setUsername($username): self
+    public function setUsername($username)
     {
         $this->username = $username;
 
@@ -45,7 +45,7 @@ class User implements EntityInterface
      * @param $email
      * @return self
      */
-    public function setEmail($email): self
+    public function setEmail($email)
     {
         $this->email = $email;
 
@@ -55,7 +55,7 @@ class User implements EntityInterface
     /**
      * @return bool
      */
-    public function isEmpty(): bool
+    public function isEmpty()
     {
         return !$this->id && !$this->username && !$this->email;
     }
@@ -63,7 +63,7 @@ class User implements EntityInterface
     /**
      * @return array
      */
-    public function toArray(): array
+    public function toArray()
     {
         $user = [];
 

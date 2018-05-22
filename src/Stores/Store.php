@@ -22,7 +22,7 @@ class Store implements \JsonSerializable
      *
      * @return array \Hotrush\Events\EventBean[]
      */
-    public function list(): array
+    public function list2()
     {
         return $this->store;
     }
@@ -32,7 +32,7 @@ class Store implements \JsonSerializable
      *
      * @return bool
      */
-    public function isEmpty(): bool
+    public function isEmpty()
     {
         return empty($this->store);
     }
@@ -52,7 +52,7 @@ class Store implements \JsonSerializable
      *
      * @return array
      */
-    public function jsonSerialize(): array
+    public function jsonSerialize()
     {
         return $this->store;
     }

@@ -4,7 +4,7 @@ namespace Hotrush\Context\Entities;
 
 interface EntityInterface
 {
-    public function isEmpty(): bool;
+    public function isEmpty();
 
-    public function toArray(): array;
+    public function toArray();
 }

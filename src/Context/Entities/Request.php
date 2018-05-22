@@ -51,19 +51,19 @@ class Request implements EntityInterface
     private function extractRequestData()
     {
         $headers = array_change_key_case(getallheaders(), CASE_LOWER);
-        $serverProtocol = $_SERVER['SERVER_PROTOCOL'] ?? '';
+        $serverProtocol = isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : '';
 
         $this->request = [
             'http_version' => substr($serverProtocol, strpos($serverProtocol, '/')+1),
-            'method' => $_SERVER['REQUEST_METHOD'] ?? 'cli',
+            'method' => isset($_SERVER['REQUEST_METHOD']) ?  $_SERVER['REQUEST_METHOD'] : 'cli',
             'socket' => [
-                'remote_address' => $_SERVER['REMOTE_ADDR'] ?? '',
+                'remote_address' => isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '',
                 'encrypted' => isset($_SERVER['HTTPS']),
             ],
             'url' => [
                 'protocol' => isset($_SERVER['HTTPS']) ? 'https' : 'http',
-                'hostname' => $_SERVER['SERVER_NAME'] ?? '',
-                'port' => $_SERVER['SERVER_PORT'] ?? '',
+                'hostname' => isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : '',
+                'port' => isset($_SERVER['SERVER_PORT']) ? $_SERVER['SERVER_PORT'] : '',
                 'pathname' => isset($_SERVER['REQUEST_URI'])
                     ? substr(
                         $_SERVER['REQUEST_URI'],
@@ -73,9 +73,9 @@ class Request implements EntityInterface
                             : null
                     )
                     : '',
-                'search' => '?' . (($_SERVER['QUERY_STRING'] ?? '') ?? ''),
+                'search' => '?' . ((isset($_SERVER['QUERY_STRING']) ? $_SERVER['QUERY_STRING'] : '') ? (isset($_SERVER['QUERY_STRING']) ? $_SERVER['QUERY_STRING'] : '') : ''),
                 'full' => isset($_SERVER['SERVER_NAME'])
-                    ? (isset($_SERVER['HTTPS']) ? 'https://' : 'http://').$_SERVER['SERVER_NAME'].($_SERVER['REQUEST_URI'] ?? '')
+                    ? (isset($_SERVER['HTTPS']) ? 'https://' : 'http://').$_SERVER['SERVER_NAME'].($_SERVER['REQUEST_URI'] ? $_SERVER['REQUEST_URI'] : '')
                     : '',
             ],
             'headers' => $headers,
@@ -97,7 +97,7 @@ class Request implements EntityInterface
     /**
      * @return bool
      */
-    public function isEmpty(): bool
+    public function isEmpty()
     {
         return false;
     }
@@ -105,7 +105,7 @@ class Request implements EntityInterface
     /**
      * @return array
      */
-    public function toArray(): array
+    public function toArray()
     {
         return $this->request;
     }

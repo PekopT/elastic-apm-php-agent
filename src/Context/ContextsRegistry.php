@@ -43,7 +43,7 @@ class ContextsRegistry
     /**
      * @return User
      */
-    public function getUser(): User
+    public function getUser()
     {
         return $this->user;
     }
@@ -51,7 +51,7 @@ class ContextsRegistry
     /**
      * @return Tags
      */
-    public function getTags(): Tags
+    public function getTags()
     {
         return $this->tags;
     }
@@ -59,7 +59,7 @@ class ContextsRegistry
     /**
      * @return Custom
      */
-    public function getCustom(): Custom
+    public function getCustom()
     {
         return $this->custom;
     }
@@ -67,7 +67,7 @@ class ContextsRegistry
     /**
      * @return Request
      */
-    public function getRequest(): Request
+    public function getRequest()
     {
         return $this->request;
     }
@@ -75,7 +75,7 @@ class ContextsRegistry
     /**
      * @return array
      */
-    public function toArray(): array
+    public function toArray()
     {
         $contexts = [
             'request' => $this->request->toArray(),

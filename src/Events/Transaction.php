@@ -42,7 +42,7 @@ class Transaction extends EventBean implements \JsonSerializable
      * @param string            $name
      * @param ContextsRegistry  $contextsRegistry
      */
-    public function __construct(string $name, ContextsRegistry $contextsRegistry = null)
+    public function __construct($name, ContextsRegistry $contextsRegistry = null)
     {
         parent::__construct($contextsRegistry);
         $this->setTransactionName($name);
@@ -79,7 +79,7 @@ class Transaction extends EventBean implements \JsonSerializable
      *
      * @return void
      */
-    public function setTransactionName(string $name)
+    public function setTransactionName($name)
     {
         $this->name = $name;
     }
@@ -89,7 +89,7 @@ class Transaction extends EventBean implements \JsonSerializable
      *
      * @return string
      */
-    public function getTransactionName(): string
+    public function getTransactionName()
     {
         return $this->name;
     }
@@ -97,7 +97,7 @@ class Transaction extends EventBean implements \JsonSerializable
     /**
      * @return float
      */
-    public function getDuration(): float
+    public function getDuration()
     {
         return $this->duration;
     }
@@ -107,7 +107,7 @@ class Transaction extends EventBean implements \JsonSerializable
      *
      * @return array
      */
-    public function jsonSerialize(): array
+    public function jsonSerialize()
     {
         return [
             'id' => $this->getId(),

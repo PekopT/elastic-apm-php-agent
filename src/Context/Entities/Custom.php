@@ -29,7 +29,7 @@ class Custom implements EntityInterface
     /**
      * @return bool
      */
-    public function isEmpty(): bool
+    public function isEmpty()
     {
         return empty($this->custom);
     }
@@ -37,7 +37,7 @@ class Custom implements EntityInterface
     /**
      * @return array
      */
-    public function toArray(): array
+    public function toArray()
     {
         return $this->custom;
     }
